@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Senin İçin ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#120018,#2b0035,#4c005a);
+    overflow:hidden;
+    position:relative;
+    padding:20px;
+}
+
+.stars{
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(circle, rgba(255,255,255,.9) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255,192,203,.7) 1px, transparent 1px);
+    background-size:80px 80px, 120px 120px;
+}
+
+.photo-bg{
+    position:absolute;
+    width:200px;
+    height:270px;
+    background:url("./photo.jpeg") center/cover no-repeat;
+    border-radius:22px;
+    box-shadow:0 0 40px rgba(255,255,255,.25);
+    opacity:.45;
+    filter:blur(1px);
+    z-index:2;
+}
+
+.floating-heart{
+    position:absolute;
+    bottom:-50px;
+    font-size:28px;
+    animation:floatUp linear infinite;
+    opacity:.75;
+}
+
+@keyframes floatUp{
+    from{transform:translateY(0);opacity:0;}
+    20%{opacity:1;}
+    to{transform:translateY(-120vh);opacity:0;}
+}
+
+#heartContainer{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    z-index:5;
+}
+
+.heart{
+    position:relative;
+    width:150px;
+    height:150px;
+    background:#ff3d7f;
+    transform:rotate(-45deg);
+    cursor:pointer;
+    animation:beat 1s infinite;
+    box-shadow:0 0 40px #ff4da6,0 0 90px #ff66b3;
+}
+
+.heart::before,
+.heart::after{
+    content:"";
+    position:absolute;
+    width:150px;
+    height:150px;
+    background:#ff3d7f;
+    border-radius:50%;
+}
+
+.heart::before{top:-75px;left:0;}
+.heart::after{left:75px;top:0;}
+
+@keyframes beat{
+    0%,100%{transform:rotate(-45deg) scale(1);}
+    50%{transform:rotate(-45deg) scale(1.08);}
+}
+
+.heart.clicked{
+    animation:explode .7s forwards;
+}
+
+@keyframes explode{
+    0%{transform:rotate(-45deg) scale(1);}
+    70%{transform:rotate(-45deg) scale(1.4);}
+    100%{transform:rotate(-45deg) scale(0);opacity:0;}
+}
+
+.text{
+    margin-top:45px;
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+    text-shadow:0 0 15px pink;
+}
+
+.letter{
+    display:none;
+    width:92%;
+    max-width:760px;
+    max-height:85vh;
+    overflow-y:auto;
+    background:rgba(255,255,255,.82);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:22px;
+    padding:28px;
+    line-height:1.8;
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+    z-index:10;
+    transform:translateY(80px) scale(.8);
+    opacity:0;
+    transition:all 1s ease;
+}
+
+.letter.show{
+    transform:translateY(0) scale(1);
+    opacity:1;
+}
+
+h2{
+    color:#ff2e63;
+    margin-bottom:18px;
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" preload="auto" loop>
+    <source src="./lover.mp3" type="audio/mpeg">
+</audio>
+
+<div class="stars"></div>
+<div class="photo-bg"></div>
+
+<div class="floating-heart" style="left:8%;animation-duration:9s;">💗</div>
+<div class="floating-heart" style="left:24%;animation-duration:7s;">💕</div>
+<div class="floating-heart" style="left:42%;animation-duration:10s;">💖</div>
+<div class="floating-heart" style="left:63%;animation-duration:8s;">💘</div>
+<div class="floating-heart" style="left:82%;animation-duration:11s;">❤️</div>
+
+<div id="heartContainer">
+    <div class="heart" onclick="openLetter()"></div>
+    <div class="text">Kalbe dokun ❤️</div>
+</div>
+
+<div class="letter" id="letter">
+<h2>Aşkımm 💌</h2>
+<p>
+Şu sıralar senden uzakta olmak bana bir şeyi çok net gösterdi; meğer sen hayatımın ne kadar büyük bir parçası olmuşsun.
+<br><br>
+Aynı üniversitede olup seni görebilmeye alışmışken şimdi aramızdaki mesafe bazen zor geliyor. Çünkü gün içinde aklıma gelen ilk şeylerden biri yine sen oluyorsun; “Şu an yanında olsam ne güzel olurdu” diye düşünüyorum.
+<br><br>
+Sana karşı hissettiklerimi anlatmak bazen zor, ama bildiğim bir şey var: sen benim için çok özelsin. Seninle konuşmak, gülmek, en basit şeyleri bile paylaşmak bile bana iyi geliyor. Yokluğunda bile hayatımdaki yerini bu kadar hissettirebilmen, sana ne kadar bağlı olduğumu gösteriyor.
+<br><br>
+Mesafeler can sıkıcı olabilir ama sana olan sevgimi azaltmıyor, aksine seni ne kadar sevdiğimi daha da iyi anlamamı sağlıyor.
+<br><br>
+Seni özlüyorum, sesini duymayı, yanında olmayı, sana sarılmayı özlüyorum. Tek istediğim, yeniden yan yana olduğumuz anın gelmesi.
+<br><br>
+O zamana kadar bilmeni istediğim tek şey şu: kalbimdeki yerin hep çok özel ve seni gerçekten çok seviyorum ❤️
+</p>
+</div>
+
+<script>
+function openLetter(){
+    document.querySelector(".heart").classList.add("clicked");
+
+    const music = document.getElementById("bgMusic");
+    music.volume = 0.3;
+    music.play().catch(()=>{});
+
+    setTimeout(()=>{
+        document.getElementById("heartContainer").style.display="none";
+        const letter = document.getElementById("letter");
+        letter.style.display="block";
+
+        setTimeout(()=>{
+            letter.classList.add("show");
+        },50);
+    },600);
+}
+</script>
+
+</body>
+</html>
